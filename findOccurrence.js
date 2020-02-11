@@ -1,8 +1,14 @@
-let str = "ooxx";
+let str = "experiment";
 
-let something = XO(str);
-console.log(something);
+myArray = str.split("");
 
-function XO(str) {
-    return str.match(/x/g);
-}
+let list = [];
+
+myArray.forEach(element => {
+     if (element == "x")
+         list.push(myArray.indexOf(element));
+});
+
+list.forEach(element => {
+    console.log(element);
+});
