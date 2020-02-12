@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+
+<body>
+    <button id="myBtn">Boom.</button>
+
+    <p id="goesBoom"></p>
+
+    <script>
+        document.getElementById("myBtn").addEventListener("click", displayDate);
+
+        function displayDate() {
+            document.getElementById("goesBoom").innerHTML = "BOOOOOOOOOOOOOOOOOM!!!!!!!!!!!!";
+        }
+    </script>
+</body>
+
+</html>
