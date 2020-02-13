@@ -1,23 +1,63 @@
 <!DOCTYPE html>
-
-<!-- Document Object Model -->
-
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>BROTHER</p>        <!-- Comment -->
+        <p id="sister" class="active" style="color:red;" data-owner="Kathy">SISTER
+            <span>CHILD</span>
+        </p>
+        <ul>
+            <li class="special">One</li>
+            <li class="special">Two</li>
+            <li>Three</li>
+            <li>Four</li>
+            <li>Five</li>
+        </ul>
+        <script>
+            const lis = document.querySelectorAll("li");
 
-<body>
-    <p>Brother</p>
-    <p>Sister
-        <span>Child</span>
-    </p>
-</body>
+            function liHandler(li) {
 
-<script>
-    const body = document.body;
-</script>
+                li.innerHTML = "<strong>" + li.textContent + "</strong>";
+            }
 
+            
+
+            const body = document.body;
+            // document.querySelector("body");
+            body.parentElement;
+            body.children;
+            body.children[0];
+            body.children.length;
+            const grandchild = body.children[1].children[0];
+            const firstP = body.children[0];
+            firstP.nextElementSibling;
+            body.firstChild;
+            body.lastChild;
+
+            const sister = document.querySelector("#sister");
+            console.log( sister.getAttribute("id") );
+            console.log( sister.getAttribute("style") );
+            console.log( sister.getAttribute("data-owner") );
+            sister.setAttribute("data-owner","Mark");
+            sister.setAttribute("class","custom off");
+        </script>
+
+        <script>
+            console.clear();
+            const myPar = document.createElement("p");
+            myPar.textContent = "NEW";
+            myPar.setAttribute("class","special");
+
+            document.body.appendChild(myPar);
+
+            const note = document.createElement("span");
+            note.innerHTML = "<mark> marked </mark>";
+           myPar.appendChild(note); 
+        </script>
+    </body>
 </html>
