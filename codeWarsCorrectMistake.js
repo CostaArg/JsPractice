@@ -1,23 +1,13 @@
-let string = "5omething";
+let string = "50METH1NG";
 
-correct(string);
+string = correct(string);
 
 function correct(string) {
-    strArr = string.split("");
 
-    let five = "kati";
-    while (five != "-1") {
-        five = strArr.indexOf("5");
-        if (five != "-1")
-            strArr.splice(five, 1, "S");
-    }
-
-    // strArr.forEach(element => {
-    //     if (element == 5)
-    //     element = "S";
-    // });
-
-    string = strArr.join();
+    string = string.replace(/5/g, "S");
+    string = string.replace(/0/g, "O");
+    string = string.replace(/1/g, "I");
+    return string;
 }
 
 console.log(string);
