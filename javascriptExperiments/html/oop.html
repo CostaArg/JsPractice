@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>OOP</h1>
+
+    <!-- object literals: -->
+    <!-- <script>
+        let accounts = [];
+        let account1 = {
+            IBAN: 1030301230,
+            fullName: "Steve O",
+            balance: 69,
+            deposit: function (amount) {
+                this.balance += amount;
+            },
+            withdraw: function (amount) {
+                if (amount <= this.balance) {
+                    this.balance -= amount;
+                    return { amount: amount };
+                }
+                else
+                    return { error: "Insufficient balance." };
+            }
+        }
+        let account2 = {
+            IBAN: 92592349,
+            fullName: "Steve Carell",
+            balance: 1337,
+            deposit: function (amount) {
+                this.balance += amount;
+            },
+            withdraw: function (amount) {
+                if (amount <= this.balance) {
+                    this.balance -= amount;
+                    return { amount: amount };
+                }
+                else
+                    return { error: "Insufficient balance." };
+            }
+        }
+
+        accounts.push(account1, account2);
+
+        
+    </script> -->
+
+    <script>
+        let IBAN = 1000;
+        let fullName = "";
+        let balance = 0;
+        let deposit = 0;
+        let withdraw = 0;
+
+        function Account(fullName) {
+            this.IBAN = ++IBAN,
+                this.fullName = fullName,
+                this.balance = 0;
+            account.push(this);
+        }
+
+        Account.prototype.ccode = "Eurobank";
+
+        Account.prototype.deposit = function (amount) {
+            this.balance += amount;
+            return "Balance updated: " + this.balance;
+        }
+
+        Account.prototype.withdraw = function (amount) {
+            if (amount <= this.balance) {
+                this.balance -= amount;
+                return { amount: amount };
+            }
+            else
+                return "Insufficient balance.";
+        }
+
+    </script>
+
+</body>
+
+</html>

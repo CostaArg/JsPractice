@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>OOP</h1>
+    <!-- OBJECT LITERALS -->
+    <script>
+        /*
+        const accounts = [];
+        const account1 =
+        {
+            IBAN: 1000,
+            fullname: "John Doe",
+            balance: 0,
+            deposit: function(amount)
+            {
+                this.balance += amount;
+            },
+            withdraw: function(amount)
+            {
+                if ( amount <= this.balance ){
+                    this.balance -= amount;
+                    return { amount: amount };
+                }
+                return { error: "Inefficient amount" };
+            }
+        }
+        const account2 =
+        {
+            IBAN: 1001,
+            fullname: "Jane Doe",
+            balance: 2000,
+            deposit: function(amount)
+            {
+                this.balance += amount;
+            },
+            withdraw: function(amount)
+            {
+                if ( amount <= this.balance ){
+                    this.balance -= amount;
+                    return { amount: amount };
+                }
+                return { error: "Inefficient amount" };
+            }
+        }
+        accounts.push( account1, account2 );
+        */
+    </script>
+    <!-- FUNCTION CONSTRUCTORS -->
+    <script>
+        /*
+        const accounts = [];
+        // class Account
+        function Account( fullname ){
+            // constructor:
+            // 1) {}
+            this.IBAN = ++Account.IBAN; // {} -> { IBAN: 1000 }
+            this.fullname = fullname;
+            this.balance = 0;
+            accounts.push( this );
+        }
+        Account.IBAN = 1000;
+        Account.prototype.ccode = "EUROBANK";
+        Account.prototype.deposit = function(amount)
+        {
+                this.balance += amount;
+                return "Balance updated: " + this.balance;
+        }
+        Account.prototype.withdraw = function(amount)
+        {
+                this.balance -= amount;
+        }
+
+        const account1 = new Account("John Doe");
+        const response = account1.deposit(50);
+        console.log(response);
+        console.log(response);
+        account1.deposit(150);
+        // console.log( typeof account1 );
+        // console.log( account1 instanceof Account );
+        // console.log( account1.constructor );
+        const account2 = new Account("Jane Doe");
+        console.log(Account.IBAN);
+        console.log( account2 );
+        */
+    </script>
+    <!-- CLASS CONSTRUCTORS -->
+    <script>
+        const accounts = [];
+        // class Account
+        class Account {
+
+            constructor(fullname) {
+                // constructor:
+                // 1) {}
+                this.IBAN = ++Account.IBAN; // {} -> { IBAN: 1000 }
+                this.fullname = fullname;
+                this.balance = 0;
+                accounts.push(this);
+            }
+            deposit(amount) {
+                this.balance += amount;
+                return "Balance updated: " + this.balance;
+            }
+            withdraw(amount) {
+                this.balance -= amount;
+            }
+        }
+        class PremiumAccount extends Account {
+            bonus() {
+                this.balance += 500;
+            }
+        }
+        Account.IBAN = 1000;
+        Account.prototype.ccode = "EUROBANK";
+
+        const account1 = new Account("John Doe");
+        const response = account1.deposit(50);
+        console.log(response);
+        console.log(response);
+        account1.deposit(150);
+        // console.log( typeof account1 );
+        // console.log( account1 instanceof Account );
+        // console.log( account1.constructor );
+        const account2 = new Account("Jane Doe");
+        console.log(Account.IBAN);
+        console.log(account2);
+
+    </script>
+
+</body>
+
+</html>
