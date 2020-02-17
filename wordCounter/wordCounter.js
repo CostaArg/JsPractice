@@ -11,20 +11,17 @@ function update() {
     document.getElementById("wcount").innerHTML = "0";
   }
 
-  const myPar = document.createElement("p");
+  let myPar = document.createElement("p");
+  myPar.setAttribute("id", "palio");
   myPar.style.color = "red";
 
-  //bale sto p id kai meta xrwma kokkino
-
-
+  let old = document.getElementById("palio");
   if (text.toLowerCase().includes("fuck")) {
     this.value = this.value.replace(/fuck/i, "****");
-    document.body.appendChild(myPar);
+    document.body.replaceChild(myPar, old);
     counter++;
     myPar.textContent = counter;
   }
-
-
 }
 
 // 1) ADD A RED BORDER IN THE TEXTAREA WHEN THE USER CURSES

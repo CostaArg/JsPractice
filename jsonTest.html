@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries App</title>
+  </head>
+
+  <body>
+    <h1>Countries App</h1>
+    <ul>
+      <li>Name:<span id="name"></span></li>
+      <li>Capital: <span id="capital"></span></li>
+      <li>Population: <span id="pop"></span></li>
+      <li><img id="flag" /></li>
+    </ul>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const $ = 42;
+      const surname = "Minadis";
+      function init($) {
+        function displayCountryData(country) {}
+        const surname = "Resig";
+        console.log(surname);
+        const URL = "https://restcountries.eu/rest/v2/name/greece";
+        $("h1").css("border", "2px solid gray");
+        // Ajax Request:
+        console.log(1);
+        $.ajax({
+          url: URL,
+          success: function(data) {
+            console.log("received", data[0].capital);
+            $("#name").text(data[0].name);
+            $("#capital").text(data[0].capital);
+            $("#pop").text(data[0].population);
+            $("#flag")
+              .attr("src", data[0].flag)
+              .css("width", 200);
+          }
+        });
+        console.log(2);
+      }
+      // jQuery( document ).ready( init );
+      jQuery(init);
+      // - Waits for the DOM to be loaded
+      // DOMContentLoaded event
+      // When DOM is loaded: init( jQuery );
+    </script>
+    <!-- https://restcountries.eu/rest/v2/name/greece -->
+  </body>
+</html>
