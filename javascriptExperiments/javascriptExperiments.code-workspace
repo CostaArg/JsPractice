@@ -2,9 +2,9 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "html"
 		}
-	]
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "javascriptExperiments"
+	}
 }

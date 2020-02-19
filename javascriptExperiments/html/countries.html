@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries App</title>
+    <style>
+        h1 {
+            position: relative;
+            transition: all 3s ease;
+            left:0;
+            color: black;
+        }
+        h1:hover {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Countries App</h1>
+    <form action="https://yahoo.com">
+        <input type="text" name="country" placeholder="Enter country name, e.g. greece">
+    </form>
+    <p id="response"></p>
+    <ul>
+        <li>Name:<span id="name"></span></li>
+        <li>Capital: <span id="capital"></span></li>
+        <li>Population: <span id="pop"></span></li>
+        <li><img id="flag" /></li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        const $ = 42;
+        const surname = "Minadis";
+        function init($) {
+
+            // Transition using CSS
+            // $("h1").css("left","200px").css("color","red");
+            $("h1").animate({
+                opacity: 0.2
+            }, 2000 );
+            $("ul").hide();
+            // $("ul").toggle(); // Toggles between show and hide
+            function displayCountryData(country) {
+                const surname = "Resig";
+                console.log(surname);
+                const URL = "https://restcountries.eu/rest/v2/name/";
+
+                $("h1").css("border", "2px solid gray");
+                // Ajax Request: 
+                console.log(1);
+                $.ajax({
+                    url: URL + country,
+                    error: function(err){
+                        $("ul").hide();
+                        $("#response").show();
+                        console.log("Error:", err);
+                        document.querySelector("#response").innerHTML = "<span style='color:tomato'>Error:</span>" + err.status;
+                    },
+                    success: function (data) {
+                        $("#response").hide();
+                        $("ul").show();
+                        console.log("received", data[0].capital);
+                        $("#name").text(data[0].name);
+                        $("#capital").text(data[0].capital);
+                        $("#pop").text(data[0].population);
+                        $("#flag").attr("src", data[0].flag).css("width", 200);
+                    }
+                });
+                console.log(2);
+
+            }
+            
+            // GET INPUT FROM USER
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(e){
+                e.preventDefault();
+                console.log(
+                    this.country.value
+                );
+                // CALL FUNCTION WITH USER INPUT
+                displayCountryData( this.country.value );
+            });
+
+
+
+        }
+        jQuery(init);
+        // jQuery( document ).ready( init );
+        // - Waits for the DOM to be loaded
+        // DOMContentLoaded event
+        // When DOM is loaded: init( jQuery );
+    </script>
+    <!-- https://restcountries.eu/rest/v2/name/greece -->
+</body>
+
+</html>
