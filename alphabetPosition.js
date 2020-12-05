@@ -1,3 +1,4 @@
+// function that converts letters to numbers based on their position in the alphabet
 function alphabetPosition(text) {
     let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     let result = "";
@@ -6,4 +7,4 @@ function alphabetPosition(text) {
     return result.trim();
 }
 
-console.log(alphabetPosition("KALIMERA"));
+console.log(alphabetPosition("NUMERIFY"));
